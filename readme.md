@@ -22,7 +22,11 @@ $ node server
 
 Depois disso, selecione **Preview > Preview Running Application**.
 Verifique que a aplicação está funcionando corretamente, acessando o endereço
-https://<appname>-<username>.c9.io/sessions
+https://appname-username.c9.io/sessions
+
+Obs:
+- appname ... nome do app que você escolheu no c9.io
+- username ... node de usuário que você escolheu no c9.io
 
 Se tudo estiver funcionando corretamente, o navegador irá exibir o conteúdo abaixo, que nada mais são do que alguns dados fictícios usados para testar o APP.
 ```json
@@ -40,9 +44,9 @@ mongoose.connect('mongodb://poli-app:a1b2c3d4@ds049864.mongolab.com:49864/poli-a
 
 ## Criação da API
 
-Crie o diretório **models** dentro do diretório raíz. Agora, dentro de **models**, crie um arquivo chamado *course.js*
+Crie o diretório **models** dentro do diretório raíz. Agora, dentro de **models**, crie um arquivo chamado **course.js**
 
-Abra o arquivo *course.js* e modifique o conteúdo de  para que fique como abaixo:
+Abra o arquivo **course.js** e modifique o conteúdo de  para que fique como abaixo:
 
 ```js
 // Dependencies
@@ -60,7 +64,7 @@ var courseSchema = new mongoose.Schema({
 module.exports = restful.model('Courses', courseSchema);
 ```
 
-Agora, crie um novo arquivo dentro de **routes** com o nome *api.js*. Abra este arquivo e insira o conteúdo abaixo:
+Agora, crie um novo arquivo dentro de **routes** com o nome **api.js**. Abra este arquivo e insira o conteúdo abaixo:
 ```js
 // Dependencies
 var express = require('express');
@@ -77,7 +81,7 @@ Course.register(router, '/courses');
 module.exports = router;
 ```
 
-Finalmente, agora no arquivo *server.js*, abaixo da seguinte linha:
+Finalmente, agora no arquivo **server.js**, abaixo da seguinte linha:
 ```js
 app.get('/sessions/:id', sessions.findById);
 ```
@@ -127,7 +131,7 @@ Executando novamente o comando:
 ```sh
 $ node server
 ```
-E selecionando **Preview > Preview Running Application**, podemos agora testar nossa API de Cursos acessando o endereço https://<appname>-<username>.c9.io/api/courses. Inicialmente, esse endereço deve retornar um conjunto vazio, representado por `[]`. Isso é esperado, já que ainda não adicionamos nenhum curso. Vamos fazer isso mais adiante.
+E selecionando **Preview > Preview Running Application**, podemos agora testar nossa API de Cursos acessando o endereço https://appname-username.c9.io/api/courses. Inicialmente, esse endereço deve retornar um conjunto vazio, representado por `[]`. Isso é esperado, já que ainda não adicionamos nenhum curso. Vamos fazer isso mais adiante.
 
 ### Fazendo o Deploy da API
 Execute os seguintes comandos:
@@ -168,7 +172,7 @@ angular.module('starter.services', ['ngResource'])
 });
 ```
 
-ONde o endereço acima, dentro de $resource é aquele gerado pelo Heroku.
+Onde o endereço acima, que dentro de $resource é igual àquele gerado pelo Heroku, que você deve ter guardado.
 
 Agora, abra o arquivo *index.html* que está em **www** e faça as seguintes modificações:
 
