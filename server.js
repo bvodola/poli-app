@@ -2,7 +2,11 @@ var express = require('express'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
     sessions        = require('./routes/sessions'),
+	mongoose        = require('mongoose'),
     app = express();
+
+// MongoDB
+mongoose.connect('mongodb://poli-app:a1b2c3d4@ds049864.mongolab.com:49864/poli-app');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

@@ -21,6 +21,12 @@
   "scripts": {
     "start": "node server.js"
   },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": "4.1.1"
+  },
   "keywords": [
     "Ionic",
     "Tutorial"
